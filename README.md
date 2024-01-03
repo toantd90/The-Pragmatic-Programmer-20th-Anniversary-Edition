@@ -1,3 +1,5 @@
+# The-Pragmatic-Programmer-20th-Anniversary-Edition
+
 This is my summary of The Pragmatic Programmer: Your journey to mastery, 20th Anniversary Edition, by Andrew Hunt and David Thomas. I use it while learning and as quick reference. It is not intended to be an standalone substitution of the book so if you really want to learn the concepts here presented, buy and read the book and use this repository as a reference and guide.
 
 If you are the publisher and think this repository should not be public, just write me an email at toantdfu [at] gmail [dot] com and I will make it private.
@@ -32,16 +34,6 @@ There is a [Quick Reference](#quick-reference) at the end.
 	- [Quotes](#quotes)
 	- [CheckList](#checklist)
 		- [Languages To Learn](#languages-to-learn)
-		- [The WISDOM Acrostic](#the-wisdom-acrostic)
-		- [How to Maintain Orthogonality](#how-to-maintain-orthogonality)
-		- [Things to prototype](#things-to-prototype)
-		- [Architectural Questions](#architectural-questions)
-		- [Debugging Checklist](#debugging-checklist)
-		- [Law of Demeter for Functions](#law-of-demeter-for-functions)
-		- [How to Program Deliberately](#how-to-program-deliberately)
-		- [When to Refactor](#when-to-refactor)
-		- [Cutting the Gordian Knot](#cutting-the-gordian-knot)
-		- [Aspects of Testing](#aspects-of-testing)
 <!-- /TOC -->
 
 # Chapter 1. A Pragmatic Philosophy
