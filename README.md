@@ -27,6 +27,14 @@ There is a [Quick Reference](#quick-reference) at the end.
 	- [13.-Prototype and Post-it Note](#13-prototype-and-post-it-notes)
 	- [14.-Domain Languages](#14-domain-languages)
 	- [15.-Estimating](#15-estimating)
+- [Chapter 3. The Basic Tools](#chapter-3-the-basic-tools)
+	- [16.-The Power of Plain Text](#16-the-power-of-plain-text)
+	- [17.-Shell Games](#17-shell-games)
+	- [18.-Power Editing](#18-power-editing)
+	- [19.-Version Control](#19-version-control)
+	- [20.-Debugging](#20-debugging)
+	- [21.-Text Manipulation](#21-text-manipulation)
+	- [22.-Engineering Daybooks](#22-engineering-daybooks)
 
 
 - [Quick Reference](#quick-reference)
@@ -453,6 +461,120 @@ The refinement and confidence in the schedule gets better and better each iterat
 
 *"I'll get back to you."*
 
+# Chapter 3. The Basic Tools
+
+## 16.-The Power of Plain Text
+
+We like our plain text to be understandable to humans
+
+**Tip 25: Keep Knowledge in Plain Text**
+
+### The Power Of Text
+
+* Insurance Against Obsolescence
+* Leverage
+* Easier Testing
+
+## 17.-Shell Games
+
+A benefit of GUIs is **WYSIWYG**. The disadvantage is **WYSIAWYG-** What you see is *all* what you get.
+
+**Tip 26: Use the Power of Command Shells**
+
+## 18.-Power Editing
+
+**Tip 27: Achieve Editor Fluency**
+
+## 19.-Version Control
+
+**Tip 28: Always Use Version Control**
+
+## 20.-Debugging
+
+### Psychology Of Debugging
+
+Embrace the fact that debugging is just problem solving, and attack it as such.
+
+**Tip 29: Fix the Problem, Not the Blame**
+
+It doesn't really matter whether the bug is your fault or someone else's. It is still your problem.
+
+### A Debugging Mindset
+
+You need to turn off many of the defenses you use each day to protect your ego, tune out any project pressures you may be under, and get yourself comfortable.
+
+**Tip 30: Don't Panic**
+
+Don't waste a single neuron on the train of thought that begins "but that can't happen" because quite clearly it *can*, and has.
+
+Always try to discover the root cause of a problem, not just this particular appearance of it.
+
+### Where To Start
+
+* Before *start*, make sure that you're working on code that built cleanly-without *warnings*.
+* Watch the user who reported the bug in action to get sufficient level of detail.
+
+### Debugging Strategies
+
+**Reproducing Bugs**
+* The best way to start fixing a bug is to make it reproducible.
+* We want a bug that can be reproduced through short steps (*single command*).
+
+**Tip 31: Failing Test Before Fixing Code**
+
+**Tip 32: Read the Damn Error Message**
+
+* Make sure you know how to move up and down the call stack and examine the local stack environment
+* Keep pen and paper nearby so we can jot down notes.
+* Looking at a stack trace seems to scroll on forever. There is often a quicker way to find the problem than examining each and every stack frame: use a *binary chop*. Two common bugs scenarios
+	* Sensitive to Input Values
+	* Regresssions Accross Releases
+
+**Logging and/or Tracing**
+
+Watch the state of a program or a data structure over time.
+
+**Rubber Ducking**
+
+Explain the bug to someone else.
+
+**Process of Elimination**
+
+It is possible that a bug exists in the OS, the compiler, or a third-party product—but this should not be your first thought
+
+**Tip 33: "select" Isn't Broken**
+
+### The Element of Surprise
+
+When faced with a "suprising" failure, you must accept that one or more of your assumption is wrong.
+
+**Tip 34: Don't Assume It - Prove It**
+
+* Beyond fixing the bug, you need to determine why it this failure wasn't caught earlier. Consider amend the unit or other tests so they would have caught it.
+* Are there any other places that may susceptible to this same bug?
+* If it took long a long time to fix this bug, *Why*? How could you make fixing this bug easier next time?
+* Finally, if the bug is result of someone else's wrong assumption, discuss the problem with the whole team
+
+### Debugging Check
+
+* Is the problem being reported a direct result of the underlying bug, or merely asymptom?
+* Is the bug really in the framework you're using? Is it in the OS? Or is it in your code?
+* If you explained this problem in detail to a coworker, what would you say?
+* If the suspect code passes its unit tests, are the tests complete enough? What happens if you run the tests with *this* data?
+* Do the conditions that caused this bug exist anywhere else in the system?
+
+## 21.-Text Manipulation
+
+**Tip 35: Learn a Text Manipulation Language**
+
+## 22.-Engineering Daybooks
+
+Use daybooks to take notes in the meetings, to jot down what we're working on, to note variable values when debugging, to leave reminders where we put things, to record wild ideas, and sometimes just to doodle.
+
+Main benefits:
+* More reliable than memory.
+* Gives you a place to store ideas that aren't immediately relevant to the task at hand.
+
 # Quick Reference
 ## Tips
 **Tip 1: Care About Your Craft**
@@ -503,6 +625,26 @@ The refinement and confidence in the schedule gets better and better each iterat
 
 **Tip 24: Iterate the Schedule with the Code**
 
+**Tip 25: Keep Knowledge in Plain Text**
+
+**Tip 26: Use the Power of Command Shells**
+
+**Tip 27: Achieve Editor Fluency**
+
+**Tip 28: Always Use Version Control**
+
+**Tip 29: Fix the Problem, Not the Blame**
+
+**Tip 30: Don't Panic**
+
+**Tip 31: Failing Test Before Fixing Code**
+
+**Tip 32: Read the Damn Error Message**
+
+**Tip 33: "select" Isn't Broken**
+
+**Tip 34: Don't Assume It - Prove It**
+
 ## Quotes
 I'm not in the world to live up to your expectations and you're not in this world to live up to mine. - Bruce Lee
 
@@ -514,19 +656,40 @@ An investment in knowledge always pays the best interest. - Benjamin Franklin
 
 Nothing is more dangerous than an idea if it's the only one you have. 
 
+Progress, far from consisting in change, depends on retentiveness. Those who can not remember the past are condemned to repeat it. - George Santayana, Life of Reason
+
+It is a painful thing to look at your own trouble and know that you yourself and no one else has made it. - Sophocles, Ajax
 
 ## CheckList
 
 ### Languages To Learn
 Tired of C, C++, and Java? Try the following languages. Each of these languages has different capabilities and a different "flavor." Try a small project at home using one or more of them.
-- Closure
-- Elixir
-- Elm
-- F#
-- Go
-- Haskell
-- Python
+* Closure
+* Elixir
+* Elm
+* F#
+* Go
+* Haskell
+* Python
 
+### Communicate
+
+* Know Your Audience
+* Know What You Want To Say
+* Choose Your Moment
+* Choose A Style
+* Make It Look Good
+* Involve Your Audience
+* Be A Listener
+* Get Back to People
+
+### Debugging Check
+
+* Is the problem being reported a direct result of the underlying bug, or merely asymptom?
+* Is the bug really in the framework you're using? Is it in the OS? Or is it in your code?
+* If you explained this problem in detail to a coworker, what would you say?
+* If the suspect code passes its unit tests, are the tests complete enough? What happens if you run the tests with *this* data?
+* Do the conditions that caused this bug exist anywhere else in the system?
 
 
 Content from The Pragmatic Programmer: Your journey to mastery, 20th Anniversary Edition, by Andrew Hunt and David Thomas. Visit [https://pragprog.com/titles/tpp20/the-pragmatic-programmer-20th-anniversary-edition/](https://pragprog.com/titles/tpp20/the-pragmatic-programmer-20th-anniversary-edition/).
