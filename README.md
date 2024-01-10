@@ -35,6 +35,12 @@ There is a [Quick Reference](#quick-reference) at the end.
 	- [20.-Debugging](#20-debugging)
 	- [21.-Text Manipulation](#21-text-manipulation)
 	- [22.-Engineering Daybooks](#22-engineering-daybooks)
+- [Chapter 4. Pragmatic Paranoia](#chapter-4-pragmatic-paranoia)
+	- [23.-Design by Contract](#22-engineering-daybooks)
+	- [24.-Dead Programs Tell No Lies](#24-dead-programs-tell-no-lies)
+	- [25.-Assertive Programming](#25-assertive-programming)
+	- [26.-How to Balance Resources](#26-how-to-balance-resources)
+	- [27.-Don't Outrun Your Headlights](#27-dont-outrun-your-headlights)
 
 
 - [Quick Reference](#quick-reference)
@@ -575,6 +581,92 @@ Main benefits:
 * More reliable than memory.
 * Gives you a place to store ideas that aren't immediately relevant to the task at hand.
 
+# Chapter 4. Pragmatic Paranoia
+
+**Tip 36: You Can't Write Perfect Software**
+
+No one in the brief history of computing has ever written a piece of perfect software. Pragmatic Programmers don't trust themselves, either.
+
+## 23.-Design by Contract
+
+Every function and method in a software system does *something*. Before it start that *something*, the function may have some expectation about the state of the world before and after
+* Preconditions
+* Postconditions
+* Class invariants
+
+**Tip 37: Design with Contracts**
+
+Write "lazy" code: be strict in what you will accept before you begin, and promise as little as possible in return.
+
+### Implementing DBC
+
+Simply enumerating at design time:
+
+* what the input domain range is
+* what the boundary conditions are
+* what the routine promises to deliver (and what it doesn't)
+
+### DBC And Crashing Early
+
+DBC fits in nicely with our concept of crashing early.
+
+## 24.-Dead Programs Tell No Lies
+
+It's easy to fall into the "it can't happen" mentality. We're coding defensively. We're making many assumptions. 
+
+All errors give you information. You could convince yourself that the error can't happen, and choose to ignore it. Instead, Pragmatic Programmers tell themselves that if there is an error, something very, very bad has happened.
+
+**Tip 38: Crash Early**
+
+### Crash, Don't Trash
+
+One of the benefits of detecting problems as soon as you can is that you can crash earlier, and crashing is often the best thing you can do.
+
+When your code discovers that something that was supposed to be impossible just happened, your program is no longer viable.
+
+`A dead program normally does a lot less damage than a crippled one.`
+
+## 25.-Assertive Programming
+
+**Tip 39: Use Assertions to Prevent the Impossible**
+
+* Assertions are also useful checks on an algorithm's operation.
+* Don't use assertions in place of real error handling.
+* Leave Assertions Turned On, unless you have critical performance issues.
+
+## 26.-How to Balance Resources
+
+We all manage resources whenever we code: memory, transactions, threads, network connections, files, timers-all kinds of things with limited availability. Most of the time, resource usage follows a predictable pattern: you allocate the resource, use it, and then deallocate it.
+
+**Tip 40: Finish What You Start**
+
+When in doubt, it always pays to reduce scope.
+
+**Tip 41: Act Locally**
+
+### Nest Allocations
+
+* Deallocate resources in the opposite order to that in which you allocate them.
+* When allocating the same set of resources in different places in your code, always allocate them in the same order (prevent deadlocks)
+
+### Balancing And Exceptions
+
+If an exception is thrown, how do you guarantee that everything allocated prior to the exception is tidied up?:
+* Use variable scrope
+* Use a `finally` clause in a `try...catch` block
+
+## 27.-Don't Outrun Your Headlights
+
+We can't see too far ahead into the future, and the further off-axis you look, the darker it gets. 
+
+**Tip 42: Take Small Steps-Always**
+
+Always take small, deliberate steps, checking for feedback and adjusting before proceeding. Never take on a step or a task that's "too big".
+
+**Tip 43: Avoid Fortune-Telling**
+
+Much of the time, tomorrow looks a lot like today. But don't count on it
+
 # Quick Reference
 ## Tips
 **Tip 1: Care About Your Craft**
@@ -645,6 +737,16 @@ Main benefits:
 
 **Tip 34: Don't Assume It - Prove It**
 
+**Tip 38: Crash Early**
+
+**Tip 39: Use Assertions to Prevent the Impossible**
+
+**Tip 40: Finish What You Start**
+
+**Tip 41: Act Locally**
+
+**Tip 42: Take Small Steps-Always**
+
 ## Quotes
 I'm not in the world to live up to your expectations and you're not in this world to live up to mine. - Bruce Lee
 
@@ -659,6 +761,10 @@ Nothing is more dangerous than an idea if it's the only one you have.
 Progress, far from consisting in change, depends on retentiveness. Those who can not remember the past are condemned to repeat it. - George Santayana, Life of Reason
 
 It is a painful thing to look at your own trouble and know that you yourself and no one else has made it. - Sophocles, Ajax
+
+There is a luxury in self-reproach. When we blame ourselves we feel no one else has a right to blame us. - Oscar Wilde, The Picture of Dorian Gray
+
+It's tough to make predictions, especially about the future
 
 ## CheckList
 
