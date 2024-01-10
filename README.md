@@ -737,6 +737,12 @@ Much of the time, tomorrow looks a lot like today. But don't count on it
 
 **Tip 34: Don't Assume It - Prove It**
 
+**Tip 35: Learn a Text Manipulation Language**
+
+**Tip 36: You Can't Write Perfect Software**
+
+**Tip 37: Design with Contracts**
+
 **Tip 38: Crash Early**
 
 **Tip 39: Use Assertions to Prevent the Impossible**
