@@ -41,7 +41,11 @@ There is a [Quick Reference](#quick-reference) at the end.
 	- [25.-Assertive Programming](#25-assertive-programming)
 	- [26.-How to Balance Resources](#26-how-to-balance-resources)
 	- [27.-Don't Outrun Your Headlights](#27-dont-outrun-your-headlights)
-
+- [Chapter 5. Bend, or Break](#chapter-5-bend-or-break)
+	- [28.-Decoupling](#28-decoupling)
+	- [29.-Juggling the Real World](#29-juggling-the-real-world)
+	- [30.-Transforming Programming](#30-transforming-programming)
+	- [31.-Inheritance Tax](#31-inheritance-tax)
 
 - [Quick Reference](#quick-reference)
 	- [Tips](#tips)
@@ -667,6 +671,127 @@ Always take small, deliberate steps, checking for feedback and adjusting before 
 
 Much of the time, tomorrow looks a lot like today. But don't count on it
 
+# Chapter 5. Bend, or Break
+
+## 28.-Decoupling
+
+**Tip 44: Decoupled Code Is Easier to Change**
+
+Some of the symptoms of coupling:
+* Wacky dependencies between unrelated modules or libraries.
+* "Simple" changes to one module that propagate through unrelated modules in the system or break stuff elsewhere in the system.
+* Developers afraid to change code because they aren't sure what might be affected.
+* Meetings where everyoen has to attend because no one is sure who will be affected by a change.
+
+```js
+function applyDiscount(customer, orderId, discount) {
+	let totals = customer
+				.orders
+				.find(orderId)
+				.getTotals();
+	totals.grandTotal = totals.grandTotal - discount;
+	totals.discount = discount;
+}
+```
+
+This chunk of code is traversing five levels of abstraction, from customer to total amounts.
+
+**Tip 45: Tell, Don't Ask**
+
+This principle says that you shouldn't make decisions based on the internal state of an object and then update that object. Doing so totally destroys the benefits of encapsulation and, in doing so, spreads the knowledge of the implemenation throughout the code.
+
+```js
+function applyDiscount(customer, orderId, discount) {
+	let totals = customer
+				.findOrder(orderId)
+				.applyDiscount(discount)
+}
+```
+
+**Tip 46: Don't Chain Method Calls**
+
+It is subjective, sometime chain method is the best approach
+
+**Tip 47: Avoid Global Data**
+
+**Tip 48: If It's Important Enough to Be Global, Wrap It in an API**
+
+Keeping your code shy: having it only deal with things it directly knows about, will help keep your applications decoupled, and that will make them more amendable to change.
+
+## 29.-Juggling the Real World
+
+An *event* represents the availability of information
+
+### Finite State Machines
+
+A state machine is basically just a specification of how to handle events. It consists of a set of states. For each state, we list the events that are significant to that state. For each of those events, we define the new current state of the system.
+
+### The Observer Pattern
+
+In the *observer pattern* we have a source of events, called the *observable* and a list of clients, the *observers*, who are interested in those events.
+
+An observer registers its interest with the observable, typically by passing a reference to a function to be called. Subsequently, when the event occurs, the observable **iterates** down its list of observers and calls the function that each passed it. The event is given as a parameter to that call.
+
+The problem of observer pattern:
+* Each of the observers has to register with the observable, it introduces coupling
+* Performance bottenecks as callbacks are handled inline by observable, synchronously
+
+### Publish/Subscribe
+
+We have *publishers* and *subscribers*. These are connected via channels.
+Subscribers register interest in one or more of these named channels, and publishers write events to them. Unlike the observer pattern, the communication between the publisher and subscriber is handled outside your code, and is potentially asynchronous.
+
+### Reactive Programming, Streams, And Events
+
+If you've ever used a spreadsheet, then you'll familiar with *reactive programming*. If a cell contains a formular which refers to a second cell, then updating that second cell causes the first to update as well. The value *react* as the values they use change.
+
+*Streams* let us treat events as if they were a collection of data. 
+
+## 30.-Transforming Programming
+
+**Tip 49: Programming Is About Code, But Programs Are About Data**
+
+### Finding Transformations
+
+*Top-down* approach: find steps that lead from input to output
+
+**Tip 50: Don't Hoard State, Pass It Around**
+
+Think of code as a series of (nested) transformations can be a liberating approach to programming. You will find your code cleaner, your functions shorter, and your designs flatter.
+
+## 31.-Inheritance Tax
+
+Inheritance is coupling. Not only is the child class coupled to the parent, the parent's parent, and so on, but the code that *uses* the child is also coupled to all the ancestors. 
+
+**Tip 51: Don't Pay Inheritance Tax**
+Consider alternatives that better fit your needs, such as interfaces, delegation, or mixins
+
+### The Alternatives Are Better
+
+#### Interfaces and Protocols
+
+The code for class must include the functionality of interfaces it *implements*
+
+**Tip 52: Prefer Interfaces to Express Polymorphism**
+Interfaces make polymorphism explicit without the coupling introduced by inheritance.
+
+#### Delegation
+
+**Tip 53: Delegate to Services: Has-A Trumps Is-A**
+Don’t inherit from services: contain them.
+
+### Mixins, Traits, Categories, Protocol Extensions, ...
+
+**Tip 54: Use Mixins to Share Functionality**
+
+Mixins add functionality to classes without the inheritance tax. Combine with interfaces for painless polymorphism.
+
+## 32.-Configuration
+
+**Tip 55: Parameterize Your App Using External Configuration**
+
+When code relies on values that may change after the application has gone live, keep those values external to the app. When you application will run in different environments, and potentially for different customers, keep the environment and customer specific values outside the app.
+
 # Quick Reference
 ## Tips
 **Tip 1: Care About Your Craft**
@@ -753,6 +878,32 @@ Much of the time, tomorrow looks a lot like today. But don't count on it
 
 **Tip 42: Take Small Steps-Always**
 
+**Tip 43: Avoid Fortune-Telling**
+
+**Tip 44: Decoupled Code Is Easier to Change**
+
+**Tip 45: Tell, Don't Ask**
+
+**Tip 46: Don't Chain Method Calls**
+
+**Tip 47: Avoid Global Data**
+
+**Tip 48: If It's Important Enough to Be Global, Wrap It in an API**
+
+**Tip 49: Programming Is About Code, But Programs Are About Data**
+
+**Tip 50: Don't Hoard State, Pass It Around**
+
+**Tip 51: Don't Pay Inheritance Tax**
+
+**Tip 52: Prefer Interfaces to Express Polymorphism**
+
+**Tip 53: Delegate to Services: Has-A Trumps Is-A**
+
+**Tip 54: Use Mixins to Share Functionality**
+
+**Tip 55: Parameterize Your App Using External Configuration**
+
 ## Quotes
 I'm not in the world to live up to your expectations and you're not in this world to live up to mine. - Bruce Lee
 
@@ -771,6 +922,12 @@ It is a painful thing to look at your own trouble and know that you yourself and
 There is a luxury in self-reproach. When we blame ourselves we feel no one else has a right to blame us. - Oscar Wilde, The Picture of Dorian Gray
 
 It's tough to make predictions, especially about the future
+
+When we try to pick out anything by itself, we find it hitched to everything else in the Universe.
+
+Things don't just happen, they are made to happen.
+
+If you can't describe what you are doing as a process, you don't know what you're doing
 
 ## CheckList
 
@@ -802,6 +959,14 @@ Tired of C, C++, and Java? Try the following languages. Each of these languages 
 * If you explained this problem in detail to a coworker, what would you say?
 * If the suspect code passes its unit tests, are the tests complete enough? What happens if you run the tests with *this* data?
 * Do the conditions that caused this bug exist anywhere else in the system?
+
+### Common Things To Put It Configuration Data
+* Credentials for external services (database, third party APIs, and so on)
+* Logging levels and destinations
+* Port, IP address, machine, and cluster names the app uses
+* Evironment-specific validation parameters
+* Externally set parameters, such as tax rates
+* Site-specific formatting details
 
 
 Content from The Pragmatic Programmer: Your journey to mastery, 20th Anniversary Edition, by Andrew Hunt and David Thomas. Visit [https://pragprog.com/titles/tpp20/the-pragmatic-programmer-20th-anniversary-edition/](https://pragprog.com/titles/tpp20/the-pragmatic-programmer-20th-anniversary-edition/).
