@@ -46,6 +46,12 @@ There is a [Quick Reference](#quick-reference) at the end.
 	- [29.-Juggling the Real World](#29-juggling-the-real-world)
 	- [30.-Transforming Programming](#30-transforming-programming)
 	- [31.-Inheritance Tax](#31-inheritance-tax)
+	- [32.-Configuration](#32-configuration)
+- [Chapter 6. Concurrency](#chapter-6-concurrency)
+	- [33.-Breaking Temporal Coupling](#33-breaking-temporal-coupling)
+	- [34.-Shared State Is Incorrect State](#34-shared-state-is-incorrect-state)
+	- [35.-Actors and Processes](#35-actors-and-processes)
+	- [36.-Blackboards](#36-blackboards)
 
 - [Quick Reference](#quick-reference)
 	- [Tips](#tips)
@@ -792,6 +798,70 @@ Mixins add functionality to classes without the inheritance tax. Combine with in
 
 When code relies on values that may change after the application has gone live, keep those values external to the app. When you application will run in different environments, and potentially for different customers, keep the environment and customer specific values outside the app.
 
+# Chapter 6. Concurrency
+
+*Concurrency* is when the execution of two or more pieces of code acts as if they run at the same time.
+*Parallelism* is when they *do* run at the same time.
+
+## 33.-Breaking Temporal Coupling
+
+Two aspects of time:
+* Concurrency: things happening at the same time
+* Ordering: the relative positions of things in time
+
+We need to allow for concurrency and to think about decoupling any time or order dependencies. In doing so, we can gain flexibility and reduce any time-based dependencies
+
+**Tip 56: Analyze Workflow to Improve Concurrency**
+
+Exploit concurrency in your user’s workflow.
+
+Use *activity diagram* to maximize parallelism by identifying activities that could be performed in parallel, but aren't.
+
+### Opportunities For Concurrency
+
+Find activities that take time, but not time in our code. These are all opportunities to do something more productive.
+
+### Opportunities For Parallelism
+
+Take a large piece of work, split it into independent chunks, process each in parallel, then combine the results.
+
+## 34.-Shared State Is Incorrect State
+
+**Tip 57: Shared State Is Incorrect State**
+
+We should make atomic operation so the underlying value can't change in the middle.
+
+**Semaphores and Other Forms of Mutual Exclusion**
+Classically, the operation lock the access to the resource and release when it is done.
+
+**Make the Resource Transactional**
+The current design is poor because it delegates responsibility for protecting access to the resource to the people who use it. Let's change it to centralize that control.
+
+**Multiple Resource Transactions**
+If we add a new resource to the transaction, we should have a new module to handle the transaction. It either succeeds or fails.
+
+In the real world, there are likely to be many composite resources; you'd probably want some item containing references to its components and a generic method that handles the resources. 
+
+**Tip 58: Random Failures Are Often Concurrency Issues**
+Variations in timing and context can expose concurrency bugs, but in inconsistent and irreproducible ways.
+
+## 35.-Actors and Processes
+
+* An *actor* is an independent virtual processor with its own local state. Each actor has a mailbox. When a message appears in the mailbox, the actor will process the message.
+* A *process* is a more general-purpose virtual processor, often implemented by the operating system to faciliate concurrency.
+
+Actor execute concurrently, asynchronously, and share nothing.
+
+**Tip 59: Use Actors For Concurrency Without Shared State**
+Use Actors to manage concurrent state without explicit synchronization.
+
+In the actor model, there's no need to write any code to handle concurrency, as there is no shared state. There's also no need to code in explicit end-to-end "do this, do that" logic, as the actors work it out for themselves based on the messages they receive.
+
+## 36.-Blackboards
+
+**Tip 60: Use Blackboards to Coordinate Workflow**
+Use blackboards to coordinate disparate facts and agents, while maintaining independence and isolation among participants.
+
 # Quick Reference
 ## Tips
 **Tip 1: Care About Your Craft**
@@ -904,6 +974,16 @@ When code relies on values that may change after the application has gone live, 
 
 **Tip 55: Parameterize Your App Using External Configuration**
 
+**Tip 56: Analyze Workflow to Improve Concurrency**
+
+**Tip 57: Shared State Is Incorrect State**
+
+**Tip 58: Random Failures Are Often Concurrency Issues**
+
+**Tip 59: Use Actors For Concurrency Without Shared State**
+
+**Tip 60: Use Blackboards to Coordinate Workflow**
+
 ## Quotes
 I'm not in the world to live up to your expectations and you're not in this world to live up to mine. - Bruce Lee
 
@@ -928,6 +1008,8 @@ When we try to pick out anything by itself, we find it hitched to everything els
 Things don't just happen, they are made to happen.
 
 If you can't describe what you are doing as a process, you don't know what you're doing
+
+Without writers, stories would not be written, Without actors, stories could not be brought to life - Angie-Marie Delsante
 
 ## CheckList
 
