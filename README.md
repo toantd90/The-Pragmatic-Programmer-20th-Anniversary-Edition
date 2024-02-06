@@ -52,12 +52,26 @@ There is a [Quick Reference](#quick-reference) at the end.
 	- [34.-Shared State Is Incorrect State](#34-shared-state-is-incorrect-state)
 	- [35.-Actors and Processes](#35-actors-and-processes)
 	- [36.-Blackboards](#36-blackboards)
+- [Chapter 7. While You Are Coding](#chapter-7-while-you-are-coding)
+	- [37.-Listen to Your Lizard Brain](#37-listen-to-your-lizard-brain)
+    - [38.-Programming by Coincidence](#38-programming-by-coincidence)
+	- [39.-Algorithm Speed](#39-algorithm-speed)
+	- [40.-Refactoring](#40-refactoring)
+	- [41.-Test to Code](#41-test-to-code)
+	- [42.-Property-Based Testing](#42-property-based-testing)
+	- [43.-Stay Safe Out There](#43-stay-safe-out-there)
+
 
 - [Quick Reference](#quick-reference)
 	- [Tips](#tips)
 	- [Quotes](#quotes)
 	- [CheckList](#checklist)
 		- [Languages To Learn](#languages-to-learn)
+		- [Communicate](#communicate)
+		- [Debugging Check](#debugging-check-1)
+		- [Common Things To Put It Configuration Data](#common-things-to-put-it-configuration-data)
+		- [How To Program Deliberately](#how-to-program-deliberately-1)
+		- [Security Basic Principles](#security-basic-principles-1)
 <!-- /TOC -->
 
 # Chapter 1. A Pragmatic Philosophy
@@ -398,6 +412,7 @@ We build software prototypes to analyze and expose risk, and to offer chances fo
 Prototyping is a learning experience. Its value lies not in the code produced, but it the lessons learned. That's really the point of prototyping.
 
 **Tip 21: Prototype to Learn**
+Prototyping is a learning experience. Its value lies not in the code you produce, but in the lessons you learn.
 
 ### How To Use Prototypes
 
@@ -862,6 +877,285 @@ In the actor model, there's no need to write any code to handle concurrency, as 
 **Tip 60: Use Blackboards to Coordinate Workflow**
 Use blackboards to coordinate disparate facts and agents, while maintaining independence and isolation among participants.
 
+# Chapter 7. While You Are Coding
+
+## 37.-Listen to Your Lizard Brain
+
+Instincts make you feel, not think.
+
+### Fear Of Blank Page
+
+As a developer, you've been trying things and seeing which worked and which didn't. You've been accumulating experience and wisdom. When you feel a nagging doubt, or experience some reluctance when faced with a task, it might be that experience trying to speak to you. Give it time and your doubts will probably crystallize into something more solid, something that you can address. 
+
+You afraid of making a mistake. 
+
+That's a reasonable fear. We developers put a lot of ourselves into our code, we can take errors in that code as reflections on our competence. Perhaps there's an element of *imposter syndrome*
+
+### Fighting Yourself
+
+Sometimes coding feels like walking uphill in mud. 
+
+Your code is trying to tell you that this is harder than it should be. Whatever the reason, your lizard brain is sensing feedback from the code, and it's desperately trying to get you to listen.
+
+### How To Talk Lizard
+
+**Tip 61: Listen to Your Inner Lizard**
+When it feels like your code is pushing back, it’s really your subconscious trying to tell you something’s wrong.
+
+First, stop what you're doing. Stop thinking about the code, and do something that is fairly mindless for a while. Give yourself a little time and space to let your brain organize itself. Eventually ideas may bubble up to the conscious level, and you have one of those *a ha!* moments.
+
+If that's not working, try externalizing the issue. Make doodles about the code you're writing, or explain it to a coworker, or to your rubber duck. Expose different parts of your brain to the issue, and see if any of them have a better handle on the thing that's troubling you. 
+
+But maybe you've tried these things, and you're still stuck. It's time for action.
+
+### It's Playtime!
+
+Typing in some cde, then do another thing, then type some more code, then do select-all/delete and start again. And again. And again.
+
+There is a brain hack that seems to work. Tell yourself you need to prototype something.
+
+1. Write "I'm protyping" on a sticky node, and stick it on the side of your screen.
+2. Remind yourself that protypes are meant to fail. And remind yourself that prototypes get thrown away, even if they don't fail. 
+3. In your empty editor buffer, create a comment descibing in one sentence what you want to learn or do.
+4. Start coding.
+
+### Not Just *Your* Code
+
+A large part of our job is dealing with existing code, often written by other people. Those people will have different instincts to you, and so the decisions they made will be different. Not neccessarily worse, just different.
+
+Read code mechanically, making notes on stuff that seems important.
+
+Or you can try an experiment. Once you spot strange things, jot it down. Continue doing this, and look for patterns. If you can see what drove them to write code that way.
+
+And you might just learn something new along the way.
+
+### Not Just Code
+
+Learning to listen to your gut. Sometimes things feel wrong. Stop and analyze these feelings.
+
+## 38.-Programming by Coincidence
+
+Avoid programming by coincidence-relying on luck and accidental successes-in favor of *programming deliberately*.
+
+### How To Program By Coincidence
+
+**Accidents of Implementation**
+Accidents of implementation are things that happen simply because that's the way the code is currently written. You end up relying on undocumented error or boundary conditions.
+
+For code you write that others will call, the basic principles of good modularization and of hiding implementation behind small, well-documented interfaces can all help. 
+
+For routines you call, rely only on documented behavior. If you can't, for whatever reason, then document your assumption well.
+
+**Phantom Patterns**
+Tests that seem to pass on your machine but not on the server might indicate a difference between the two environments, or maybe it's just a coincidence.
+
+Don't assume it, prove it.
+
+**Accidents of Context**
+When you copied code from the first answer you found on the net, are you sure your context is the same? Or are you building "cargo cult" code, merely imitating form without content?
+
+Finding an answer that happens to fit is not the same as the right answer
+
+**Tip 62: Don't Program by Coincidence**
+Rely only on reliable things. Beware of accidental complexity, and don’t confuse a happy coincidence with a purposeful plan.
+
+### How To Program Deliberately
+
+* Always be aware of what you are doing.
+* Can you explain the code, in detail, to a more junior programmer? If not, perhaps you are relying on coincidences.
+* Don't code in the dark. Build an application you don't fully grasp, or use a technology you don't understand, and you'll be likely be bitten by coincidences. If you're not sure why it works, you won't know why it fails.
+* Proceed from a plan.
+* Rely only on reliable things. Don't depend on assumptions. If you can't tell something is reliable, assume the worst.
+* Document your assumptions. It can help clarify your assumptions in your own mind, as well as help communicate them to others.
+* Don't just test your code, but test your assumptions as well. Don't guess, actually try it.
+* Prioritize your effort. Spend time on the important aspects, more than likely, these are the hard parts.
+* Don't be a slave to history. Don't let existing code dictate future code.
+
+## 39.-Algorithm Speed
+
+Whenever we write anything contain loops or recursive calls, we subconsciously check the runtime and memory requirements. 
+
+### Big O Notation
+
+The Big O Notation is a mathematical way of dealing with approximations. When we write that a particular algorithm take `O(n²)`, we are simply saying that the worst-case time taken will vary as the square of `n`
+
+The Big O notation doesn't apply just to time; you can use it to represent any other resources used by an algorithm. For example, it is often useful to be able to model memory consumption.
+
+### Common Sense Estimation
+
+Simple loops: `O(n)`
+Nested loops: `O(n²)`
+Binary chop: `O(lg(n))`
+Divide and conquer: `O(n lg(n))`. Algorithms that partition their input, work on the two halves independently, and then combine the result.
+Combinatoric: `O(Cⁿ)`
+
+### Algorithm Speed In Practice
+
+**Tip 63: Estimate the Order of Your Algorithms**
+Get a feel for how long things are likely to take before you write code.
+
+**Tip 64: Test Your Estimates**
+Mathematical analysis of algorithms doesn’t tell you everything. Try timing your code in its target environment.
+
+#### Best Isn't Always Best
+Be pragmatic about choosing appropriate algorithms—the fastest one is not always the best for the job.
+
+Be wary of premature optimization. Make sure an algorithm really is a bottleneck before investing time improving it.
+
+## 40.-Refactoring
+
+As a program evolves, it will become necessary to think earlier decisions and rework portions of the code.
+
+Code needs to evolve; it's not a static thinng.
+
+### When Should You Refactor
+
+* Duplication. You've discovered a violation of the DRY principle ([The Evils of Duplication](#7-the-evils-of-duplication)).
+* Nonorthogonal design. You've discovered some code or design that could be made more orthogonal ([Orthogonality](#10-orthogonality)).
+* Outdated knowledge. Things change, requirements drift, and your knowledge of the problem increases. Code needs to keep up.
+* Performance. You need to move functionality from one area of the system * to another to improve performance.
+* The Tests Pass. When you've added a small amount of code, and that one extra test passes, you now have a great opportunity to dive in and tidy up what you just wrote.
+
+#### Real-World Complications
+
+Time pressure is often used as an excuse for not refactoring. Fail to refactor now, and there'll be a far greater time investment to fix the problem down the road.
+
+Think of the code that needs refactoring as "a growth". 
+
+**Tip 65: Refactor Early, Refactor Often**
+Just as you might weed and rearrange a garden, rewrite, rework, and re-architect code when it needs it. Fix the root of the problem.
+
+### How Do You Refactor
+1. Don't try to refactor and add functionality at the same time.
+2. Make sure you have good tests before you begin refactoring.
+3. Take short, deliberate steps.
+
+## 41.-Test to Code
+
+Testing is the process of validating and verifying that software works under certain circumstances. However, the key advantages of testing are not just in terms of execution time, but also in terms of how we think about the tests.
+
+**Tip 66: Testing Is Not About Finding Bugs**
+A test is a perspective into your code, and gives you feedback about its design, api, and coupling.
+
+### Thinking About Tests
+If we are continuously thinking about testing, we will consider how we may design a software structure that is testable code, what we should test, how we test, and so on.
+
+### Tests Drive Coding 
+Started by thinking about our tests, and without writing a line of code, we can reduce coupling in our code and increase flexibility. 
+
+Thinking about writing a test for our method make us look at it from the outside, as if we were a client of the code, and not its author.
+
+**Tip 67: A Test is the First User of Your code**
+Use its feedback to guide what you do.
+
+Think about testing boundary conditions and how that will work *before* you start coding, you may find the patterns that simplify the function. If you think about the error coditions you'll need to test, you'll structure your function accordingly.
+
+#### Test-Driven Development
+
+The basic cycle of TDD is:
+
+1. Decide small piece of functionality you want to add.
+2. Write a test will pass once that functionality is implemented.
+3. Run all tests. Verify that the only failure is the one you just wrote.
+4. Write a smallest amount of code needed to get the test to pass, and verify that the tests now run cleanly.
+5. Refactor your code. Make sure the tests still pass when you're done.
+
+**Tip 68: Build End-To-End, Not Top-Down or Bottom Up**
+Build small pieces of end-to-end functionality, learning about the problem as you go.
+
+### TDD: You Need To Know Where You're Going
+
+Tests can definitely help drive development. But, as with every drive, unless you have a destination in mind, you can end up going in circles.
+
+### Unit Testing
+
+Testing done on each module, in isolation, to verify its behavior. A software unit test is code that exercises a module.
+
+### Testing Against Contract
+
+This will tell us two things:
+
+1. Whether the code meet the contract
+2. Whether the contract means what we think it means.
+
+How to test the combination
+* Test subcomponents of a module first. Once the subcomponents have been verified, then the module itself can be tested. 
+
+This technique reduces debugging effort by focusing on the likely problem source, avoiding unnecessary reexamination of subcomponents.
+
+**Tip 69: Design to Test**
+Start thinking about testing before you write a line of code.
+
+### Ad Hoc Testing
+Ad-hoc testing is when we run poke at our code manually.
+
+After debugging, formalize the ad hoc test. If the code broke once, it may break again. Don't discard the test; add it to the existing unit test arsenal.
+
+### Build A Test Window
+* Log files
+* Hot-key sequence or magic URL
+* Feature switch
+
+### A Culture Of Testing
+
+**Tip 70: Test Your Software, or Your Users Will**
+Test ruthlessly. Don’t make your users find bugs for you.
+
+Testing, design, coding-it's all programming.
+
+## 42.-Property-Based Testing
+
+Code has *contracts*. When input is provided, it ensures specific output guarantees.
+
+Code *invariants* are truths about a piece of state that hold when it's passed through a function.
+
+*Property-based testing* automates testing by utilizing *properties*, which are combinations of contracts and invariants.
+
+**Tip 71: Use Property-Based Tests to Validate Your Assumptions**
+Property-based tests will try things you never thought to try, and exercise your code in ways is wasn’t meant to be used.
+
+Property-based tests prompt you to consider your code regarding invariants and contracts, focusing on elements that should remain unchanged and conditions that must hold.
+
+## 43.-Stay Safe Out There
+
+### Security Basic Principles
+
+#### Minimize Attack Surface Area
+* Code complexity leads to attack vectors
+* Input data is an attack vector
+* Unauthenticated services are an attack vector
+* Authenticated services are an attack vector
+* Output data is an attack vector
+* Debugging info is an attack vector
+
+**Tip 72: Keep It Simple and Minimize Attack Surfaces**
+Complex code creates a breeding ground for bugs and opportunities for attackers to exploit.
+
+#### Principle of Least Privilege
+
+Allow only minimum authorization, if someone asked. Don’t grant them all to be an administrator.
+
+#### Secure Defaults
+
+Prioritize maintaining the default security of your application, even if it may feel inconvenient. For instance, hide password when typing with an asterisk. Some people may wish to see whether it is right or not. If you are in a public are
+
+#### Encrypt Sensitive Data
+
+Never leave sensitive information in plain text.
+
+#### Maintain Security Updates
+
+Always keep all of your working PCs’ security patches up to date. It may be in danger if it is out of date.
+
+## 44.-Naming Things
+
+> There’s some science behind the idea that names are deeply meaningful. It turns out that the brain can read and understand words really fast — The Pragmatic Programmer
+
+The most crucial aspect is consistency. All teammates should understand the meaning of each word and use them in the same context. Many teams utilize dictionaries to list out the special terms to the team.
+
+Lastly, carefully specify the name of everything making sense because renaming consumes a lot of effort to figure out what it really means. It’s even difficult.
+
+
 # Quick Reference
 ## Tips
 **Tip 1: Care About Your Craft**
@@ -984,6 +1278,26 @@ Use blackboards to coordinate disparate facts and agents, while maintaining inde
 
 **Tip 60: Use Blackboards to Coordinate Workflow**
 
+**Tip 61: Listen to Your Inner Lizard**
+
+**Tip 62: Don't Program by Coincidence**
+
+**Tip 63: Estimate the Order of Your Algorithms**
+
+**Tip 64: Test Your Estimates**
+
+**Tip 65: Refactor Early, Refactor Often**
+
+**Tip 66: Testing Is Not About Finding Bugs**
+
+**Tip 67: A Test is the First User of Your code**
+
+**Tip 68: Build End-To-End, Not Top-Down or Bottom Up**
+
+**Tip 69: Design to Test**
+
+**Tip 70: Test Your Software, or Your Users Will**
+
 ## Quotes
 I'm not in the world to live up to your expectations and you're not in this world to live up to mine. - Bruce Lee
 
@@ -1010,6 +1324,8 @@ Things don't just happen, they are made to happen.
 If you can't describe what you are doing as a process, you don't know what you're doing
 
 Without writers, stories would not be written, Without actors, stories could not be brought to life - Angie-Marie Delsante
+
+Only human beings can look directly at something, have all the information they need to make an accurate prediction, perhaps even momentarily make the accurate prediction, and then say that it isn't so. - Gavin de Becker, The Gift of Fear
 
 ## CheckList
 
@@ -1049,6 +1365,26 @@ Tired of C, C++, and Java? Try the following languages. Each of these languages 
 * Evironment-specific validation parameters
 * Externally set parameters, such as tax rates
 * Site-specific formatting details
+
+### How To Program Deliberately
+
+* Always be aware of what you are doing.
+* Can you explain the code, in detail, to a more junior programmer? If not, perhaps you are relying on coincidences.
+* Don't code in the dark. Build an application you don't fully grasp, or use a technology you don't understand, and you'll be likely be bitten by coincidences. If you're not sure why it works, you won't know why it fails.
+* Proceed from a plan.
+* Rely only on reliable things. Don't depend on assumptions. If you can't tell something is reliable, assume the worst.
+* Document your assumptions. It can help clarify your assumptions in your own mind, as well as help communicate them to others.
+* Don't just test your code, but test your assumptions as well. Don't guess, actually try it.
+* Prioritize your effort. Spend time on the important aspects, more than likely, these are the hard parts.
+* Don't be a slave to history. Don't let existing code dictate future code.
+
+### Security Basic Principles
+
+* Minimize Attack Surface Area
+* Principle of Least Privilege
+* Secure Defaults
+* Encrypt Sensitive Data
+* Maintain Security Updates
 
 
 Content from The Pragmatic Programmer: Your journey to mastery, 20th Anniversary Edition, by Andrew Hunt and David Thomas. Visit [https://pragprog.com/titles/tpp20/the-pragmatic-programmer-20th-anniversary-edition/](https://pragprog.com/titles/tpp20/the-pragmatic-programmer-20th-anniversary-edition/).
