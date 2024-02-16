@@ -60,6 +60,10 @@ There is a [Quick Reference](#quick-reference) at the end.
 	- [41.-Test to Code](#41-test-to-code)
 	- [42.-Property-Based Testing](#42-property-based-testing)
 	- [43.-Stay Safe Out There](#43-stay-safe-out-there)
+	- [44.-Naming Things](#44-naming-things)
+- [Chapter 8. Before the Project](#chapter-8-before-the-project)
+	- [45.-The Requirements Pit](#45-the-requirements-pit)
+	- [46.-Solving Impossible Puzzles](#46-solving-impossible-puzzles)
 
 
 - [Quick Reference](#quick-reference)
@@ -1147,6 +1151,9 @@ Never leave sensitive information in plain text.
 
 Always keep all of your working PCs’ security patches up to date. It may be in danger if it is out of date.
 
+**Tip 73: Apply Security Patches Quickly**
+Attackers deploy exploits as quick as they can, you have to be quicker.
+
 ## 44.-Naming Things
 
 > There’s some science behind the idea that names are deeply meaningful. It turns out that the brain can read and understand words really fast — The Pragmatic Programmer
@@ -1155,6 +1162,80 @@ The most crucial aspect is consistency. All teammates should understand the mean
 
 Lastly, carefully specify the name of everything making sense because renaming consumes a lot of effort to figure out what it really means. It’s even difficult.
 
+**Tip 74: Name Well; Rename When Needed**
+Name to express your intent to readers, and rename as soon as that intent shifts.
+
+# Chapter 8. Before the Project
+
+## 45.-The Requirements Pit
+
+Requirements rarely lie on the surface. Normally, they're buried deep beneath layers of assumptions, misconceptions, and politics. Even worse, often they don't really exist at all.
+
+**Tip 75: No One Knows Exactly What They Want**
+They might know a general direction, but they won’t know the twists and turns.
+
+**Tip 76: Programmers Help People Understand What They Want**
+Software development is an act of co-creation between users and programmers.
+
+Client comes to us with a need.
+The mistake new developers often make is to take this statement of need and implement a solution for it.
+
+**Tip 77: Requirements Are Learned in a Feedback Loop**
+Understanding requirements requires exploration and feedback, so the consequences of decisions can be used to refine the initial ideas.
+
+Sometimes the feedback wasn't easy to express in words.
+We produce mockups and prototypes, and let client play with them.
+
+**Tip 78: Work with a User to Think Like a User**
+It’s the best way to gain insight into how the system will really be used.
+
+**Tip 79: Policy Is Metadata**
+Don’t hardcode policy into a system; instead express it as metadata used by the system.
+
+The requirements can be in form that can fit on a real index card (often call *user stories*). A single index card can't hold the information needed to implement a component of the application. By keeping requirement short, you're encouraging developers to ask clarifying questions. You're enhancing the feedback process between clients and coders before and during the creation of each peace of code.
+
+**Tip 80: Use a Project Glossary**
+Create and maintain a single source of all the specific terms and vocabulary for a project.
+
+## 46.-Solving Impossible Puzzles
+
+The key to solving puzzles is both to recognize the constraints placed on you and to recognize the degrees of freedom you do have, for in those you'll find your solution.
+
+**Tip 81: Don’t Think Outside the Box—Find the Box**
+When faced with an impossible problem, identify the real constraints. Ask yourself: “Does it have to be done this way? Does it have to be done at all?”
+
+When faced with an intractable problem, enumerate *all* the possible avenues you have before you. Don't dismiss anything, no matter how unusable or stupid it sounds. Now go through the list and explain why a certain path cannot be taken? Are you sure? Can you *prove* it?
+
+Identify the most restrictive contraints first, and fit the remaining contraints within them.
+
+If you find yourself stuck with the problems for too long or go on the wrong path. Take a break to pause your unconscious brain for a while or work on something different.
+
+## 47.-Working Together
+
+### Pair Programming
+
+There are many benefits to pair programming. Different people bring different backgrounds and experience, different problem-solving techniques and approaches, and differing levels of focus and attention to any given problem. The developer acting as typist must focus on the low-level details of syntax and coding style, while the other developer is free to consider higher-level issues and scope.
+
+When we encounter more difficult issues, we may use *mob-programming*, which allows more than two people to work with the same issue. A business analyst, tester, etc., can be one of them. Only one operates a keyboard while the others talk about a problem that is emerging.
+
+**Tip 81: Don't Go into the Code Alone**
+Programming can be difficult and demanding. Take a friend with you.
+
+## 48.-The Essence of Agility
+
+**Tip 82: Agile Is Not a Noun; Agile Is How You Do Things**
+Agile is an adjective: it’s how you do something.
+
+Agility is all about responding to change, responding to the unknowns you encounter after you set out.
+
+There is no single plan you can follow when you develop software. 
+
+Recipe for working in an agile way:
+1. Work out where you are.
+2. Make the smallest meaningful step towards where you want to be.
+3. Evaluate where you end up, and fix anything you broke.
+
+However, we need start with a good design to make it simple to change via decoupling in order to enable the best agile appear.
 
 # Quick Reference
 ## Tips
@@ -1327,6 +1408,8 @@ Without writers, stories would not be written, Without actors, stories could not
 
 Only human beings can look directly at something, have all the information they need to make an accurate prediction, perhaps even momentarily make the accurate prediction, and then say that it isn't so. - Gavin de Becker, The Gift of Fear
 
+Perfection is achieved, not when there is nothing left to add, but when there is nothing left to take away…
+
 ## CheckList
 
 ### Languages To Learn
@@ -1385,6 +1468,13 @@ Tired of C, C++, and Java? Try the following languages. Each of these languages 
 * Secure Defaults
 * Encrypt Sensitive Data
 * Maintain Security Updates
+
+### Solving Hard Prolems
+* Consider all possible solutions. Think about all constraints you have. Don’t throw anything away. Because all parts can be included in the solutions.
+* Identify the most restrictive contraints first, and fit the remaining contraints within them.
+* Stuck with the problems, take a break or do something else.
+* Find someone to explain it to.
+
 
 
 Content from The Pragmatic Programmer: Your journey to mastery, 20th Anniversary Edition, by Andrew Hunt and David Thomas. Visit [https://pragprog.com/titles/tpp20/the-pragmatic-programmer-20th-anniversary-edition/](https://pragprog.com/titles/tpp20/the-pragmatic-programmer-20th-anniversary-edition/).
