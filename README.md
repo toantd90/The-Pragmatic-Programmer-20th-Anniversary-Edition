@@ -71,8 +71,10 @@ There is a [Quick Reference](#quick-reference) at the end.
 	- [49.-Pragmatic Teams](#49-pragmatic-teams)
 	- [50.-Coconuts Don't Cut It](#50-coconuts-dont-cut-it)
 	- [51.-Pragmatic Starter Kit](#51-pragmatic-starter-kit)
-	- [51.-Pragmatic Starter Kit](#51-pragmatic-starter-kit)
+	- [52.-Delight Your Users](#52-delight-your-users)
+	- [53.-Pride and Prejudice](#53-pride-and-prejudice)
 
+- [Chapter 10. Postface](#chapter-10-postface)
 
 - [Quick Reference](#quick-reference)
 	- [Tips](#tips)
@@ -1377,6 +1379,18 @@ Develop solutions that produce business value for your users and delight them ev
 **Tip 97: Sign Your Work**
 Artisans of an earlier age were proud to sign their work. You should be, too.
 
+# Chapter 10. Postface
+
+**Tip 98: First, Do No Harm**
+Failure is inevitable. Make sure no one will suffer because of it.
+
+**Tip 99: Don’t Enable Scumbags**
+Because you risk becoming one, too.
+
+**Tip 100: It’s Your Life. Share it. Celebrate it. Build it. AND HAVE FUN!**
+Enjoy this amazing life we have, and do great things.
+
+
 # Quick Reference
 ## Tips
 **Tip 1: Care About Your Craft**
@@ -1572,6 +1586,12 @@ Artisans of an earlier age were proud to sign their work. You should be, too.
 **Tip 96: Delight Users, Don't Just Deliver Code**
 
 **Tip 97: Sign Your Work**
+
+**Tip 98: First, Do No Harm**
+
+**Tip 99: Don’t Enable Scumbags**
+
+**Tip 100: It’s Your Life. Share it. Celebrate it. Build it. AND HAVE FUN!**
 
 
 ## Quotes
