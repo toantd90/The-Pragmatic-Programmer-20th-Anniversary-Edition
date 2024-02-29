@@ -64,6 +64,14 @@ There is a [Quick Reference](#quick-reference) at the end.
 - [Chapter 8. Before the Project](#chapter-8-before-the-project)
 	- [45.-The Requirements Pit](#45-the-requirements-pit)
 	- [46.-Solving Impossible Puzzles](#46-solving-impossible-puzzles)
+	- [47.-Working Together](#47-working-together)
+	- [48.-The Essence of Agility](#48-the-essence-of-agility)
+	
+- [Chapter 9. Pragmatic Projects](#chapter-9-pragmatic-projects)
+	- [49.-Pragmatic Teams](#49-pragmatic-teams)
+	- [50.-Coconuts Don't Cut It](#50-coconuts-dont-cut-it)
+	- [51.-Pragmatic Starter Kit](#51-pragmatic-starter-kit)
+	- [51.-Pragmatic Starter Kit](#51-pragmatic-starter-kit)
 
 
 - [Quick Reference](#quick-reference)
@@ -389,15 +397,15 @@ Advantages of tracer development are:
 
 ### Tracer Bullets Don't Always Hit Their Target
 
-The use of tracer development doesn’t always provide guaranteed results, however it is a technique that can be used when you’re not 100% certain of where you’re going. Typically, you should use tracer development in a new project with little direction regarding requirement implementation. Like with tracer bullets, you can still miss the target and that is fine. Work on how to change what needs to be changed in order to get closer to target.
+The use of tracer development doesn't always provide guaranteed results, however it is a technique that can be used when you're not 100% certain of where you're going. Typically, you should use tracer development in a new project with little direction regarding requirement implementation. Like with tracer bullets, you can still miss the target and that is fine. Work on how to change what needs to be changed in order to get closer to target.
 
 ### Tracer Code Versus Protyping
 
 The key differences between tracer development and prototyping are:
 
 * Prototyping is disposable. Tracer development is not.
-* Tracer code isn’t fully functional, but forms part of an applications skeleton.
-* Prototyping doesn’t necessarily have done with code. They can be written on whiteboards, index cards, etc.
+* Tracer code isn't fully functional, but forms part of an applications skeleton.
+* Prototyping doesn't necessarily have done with code. They can be written on whiteboards, index cards, etc.
 * Prototyping involves more planning and brainstorming, while tracer development takes on a more make-something-out-of-nothing approach. Adjustments can be made to be closer on target.
 
 ## 13.-Prototype and Post-it Notes
@@ -803,7 +811,7 @@ Interfaces make polymorphism explicit without the coupling introduced by inherit
 #### Delegation
 
 **Tip 53: Delegate to Services: Has-A Trumps Is-A**
-Don’t inherit from services: contain them.
+Don't inherit from services: contain them.
 
 ### Mixins, Traits, Categories, Protocol Extensions, ...
 
@@ -832,7 +840,7 @@ We need to allow for concurrency and to think about decoupling any time or order
 
 **Tip 56: Analyze Workflow to Improve Concurrency**
 
-Exploit concurrency in your user’s workflow.
+Exploit concurrency in your user's workflow.
 
 Use *activity diagram* to maximize parallelism by identifying activities that could be performed in parallel, but aren't.
 
@@ -904,7 +912,7 @@ Your code is trying to tell you that this is harder than it should be. Whatever 
 ### How To Talk Lizard
 
 **Tip 61: Listen to Your Inner Lizard**
-When it feels like your code is pushing back, it’s really your subconscious trying to tell you something’s wrong.
+When it feels like your code is pushing back, it's really your subconscious trying to tell you something's wrong.
 
 First, stop what you're doing. Stop thinking about the code, and do something that is fairly mindless for a while. Give yourself a little time and space to let your brain organize itself. Eventually ideas may bubble up to the conscious level, and you have one of those *a ha!* moments.
 
@@ -961,7 +969,7 @@ When you copied code from the first answer you found on the net, are you sure yo
 Finding an answer that happens to fit is not the same as the right answer
 
 **Tip 62: Don't Program by Coincidence**
-Rely only on reliable things. Beware of accidental complexity, and don’t confuse a happy coincidence with a purposeful plan.
+Rely only on reliable things. Beware of accidental complexity, and don't confuse a happy coincidence with a purposeful plan.
 
 ### How To Program Deliberately
 
@@ -999,7 +1007,7 @@ Combinatoric: `O(Cⁿ)`
 Get a feel for how long things are likely to take before you write code.
 
 **Tip 64: Test Your Estimates**
-Mathematical analysis of algorithms doesn’t tell you everything. Try timing your code in its target environment.
+Mathematical analysis of algorithms doesn't tell you everything. Try timing your code in its target environment.
 
 #### Best Isn't Always Best
 Be pragmatic about choosing appropriate algorithms—the fastest one is not always the best for the job.
@@ -1103,7 +1111,7 @@ After debugging, formalize the ad hoc test. If the code broke once, it may break
 ### A Culture Of Testing
 
 **Tip 70: Test Your Software, or Your Users Will**
-Test ruthlessly. Don’t make your users find bugs for you.
+Test ruthlessly. Don't make your users find bugs for you.
 
 Testing, design, coding-it's all programming.
 
@@ -1116,7 +1124,7 @@ Code *invariants* are truths about a piece of state that hold when it's passed t
 *Property-based testing* automates testing by utilizing *properties*, which are combinations of contracts and invariants.
 
 **Tip 71: Use Property-Based Tests to Validate Your Assumptions**
-Property-based tests will try things you never thought to try, and exercise your code in ways is wasn’t meant to be used.
+Property-based tests will try things you never thought to try, and exercise your code in ways is wasn't meant to be used.
 
 Property-based tests prompt you to consider your code regarding invariants and contracts, focusing on elements that should remain unchanged and conditions that must hold.
 
@@ -1137,7 +1145,7 @@ Complex code creates a breeding ground for bugs and opportunities for attackers 
 
 #### Principle of Least Privilege
 
-Allow only minimum authorization, if someone asked. Don’t grant them all to be an administrator.
+Allow only minimum authorization, if someone asked. Don't grant them all to be an administrator.
 
 #### Secure Defaults
 
@@ -1149,18 +1157,18 @@ Never leave sensitive information in plain text.
 
 #### Maintain Security Updates
 
-Always keep all of your working PCs’ security patches up to date. It may be in danger if it is out of date.
+Always keep all of your working PCs' security patches up to date. It may be in danger if it is out of date.
 
 **Tip 73: Apply Security Patches Quickly**
 Attackers deploy exploits as quick as they can, you have to be quicker.
 
 ## 44.-Naming Things
 
-> There’s some science behind the idea that names are deeply meaningful. It turns out that the brain can read and understand words really fast — The Pragmatic Programmer
+> There's some science behind the idea that names are deeply meaningful. It turns out that the brain can read and understand words really fast — The Pragmatic Programmer
 
 The most crucial aspect is consistency. All teammates should understand the meaning of each word and use them in the same context. Many teams utilize dictionaries to list out the special terms to the team.
 
-Lastly, carefully specify the name of everything making sense because renaming consumes a lot of effort to figure out what it really means. It’s even difficult.
+Lastly, carefully specify the name of everything making sense because renaming consumes a lot of effort to figure out what it really means. It's even difficult.
 
 **Tip 74: Name Well; Rename When Needed**
 Name to express your intent to readers, and rename as soon as that intent shifts.
@@ -1172,7 +1180,7 @@ Name to express your intent to readers, and rename as soon as that intent shifts
 Requirements rarely lie on the surface. Normally, they're buried deep beneath layers of assumptions, misconceptions, and politics. Even worse, often they don't really exist at all.
 
 **Tip 75: No One Knows Exactly What They Want**
-They might know a general direction, but they won’t know the twists and turns.
+They might know a general direction, but they won't know the twists and turns.
 
 **Tip 76: Programmers Help People Understand What They Want**
 Software development is an act of co-creation between users and programmers.
@@ -1187,10 +1195,10 @@ Sometimes the feedback wasn't easy to express in words.
 We produce mockups and prototypes, and let client play with them.
 
 **Tip 78: Work with a User to Think Like a User**
-It’s the best way to gain insight into how the system will really be used.
+It's the best way to gain insight into how the system will really be used.
 
 **Tip 79: Policy Is Metadata**
-Don’t hardcode policy into a system; instead express it as metadata used by the system.
+Don't hardcode policy into a system; instead express it as metadata used by the system.
 
 The requirements can be in form that can fit on a real index card (often call *user stories*). A single index card can't hold the information needed to implement a component of the application. By keeping requirement short, you're encouraging developers to ask clarifying questions. You're enhancing the feedback process between clients and coders before and during the creation of each peace of code.
 
@@ -1201,7 +1209,7 @@ Create and maintain a single source of all the specific terms and vocabulary for
 
 The key to solving puzzles is both to recognize the constraints placed on you and to recognize the degrees of freedom you do have, for in those you'll find your solution.
 
-**Tip 81: Don’t Think Outside the Box—Find the Box**
+**Tip 81: Don't Think Outside the Box—Find the Box**
 When faced with an impossible problem, identify the real constraints. Ask yourself: “Does it have to be done this way? Does it have to be done at all?”
 
 When faced with an intractable problem, enumerate *all* the possible avenues you have before you. Don't dismiss anything, no matter how unusable or stupid it sounds. Now go through the list and explain why a certain path cannot be taken? Are you sure? Can you *prove* it?
@@ -1218,13 +1226,13 @@ There are many benefits to pair programming. Different people bring different ba
 
 When we encounter more difficult issues, we may use *mob-programming*, which allows more than two people to work with the same issue. A business analyst, tester, etc., can be one of them. Only one operates a keyboard while the others talk about a problem that is emerging.
 
-**Tip 81: Don't Go into the Code Alone**
+**Tip 82: Don't Go into the Code Alone**
 Programming can be difficult and demanding. Take a friend with you.
 
 ## 48.-The Essence of Agility
 
-**Tip 82: Agile Is Not a Noun; Agile Is How You Do Things**
-Agile is an adjective: it’s how you do something.
+**Tip 83: Agile Is Not a Noun; Agile Is How You Do Things**
+Agile is an adjective: it's how you do something.
 
 Agility is all about responding to change, responding to the unknowns you encounter after you set out.
 
@@ -1236,6 +1244,138 @@ Recipe for working in an agile way:
 3. Evaluate where you end up, and fix anything you broke.
 
 However, we need start with a good design to make it simple to change via decoupling in order to enable the best agile appear.
+
+# Chapter 9. Pragmatic Projects
+
+## 49.-Pragmatic Teams
+
+**Tip 84: Maintain Small Stable Teams**
+Teams should be small and stable, where everyone trusts each other and depends on each other.
+
+### No Broken Windows
+
+Team should not tolerate small imperfections that no one fixes. The team *must* take responsibility for the quality of the product.
+
+Quality come from the individual contributions of all team members.
+
+### Boiled Frogs
+
+Encourage everyone to actively monitor the environment for changes. Stay awake and aware for increased scope, decreased time scales, additional features, new environments-anything that wasn't in the original understanding.
+
+### Schedule Your Knowledge Portfolio
+
+Regularly invest knowledge and manage your risks
+
+**Tip 85: Schedule It to Make It Happen**
+If you don't schedule it, it's not going to happen. Schedule reflection, experimentation, learning and skills improvement.
+
+### Communicate Team Presence
+
+Developers in a team must talk to each other. The team needs to communicate clearly with the rest of the world.
+
+### Don't Repeat Yourselves
+
+Good communication is key to avoid duplicated work between team members. Any by "good" we mean *instant* and *frictionless*
+
+### Team Tracer Bullets
+
+Implement very small bits of functionality very quickly, and get immediate feedback on how well your team communicates and delivers. 
+
+Create an environment where you can make changes and tune your team and process quickly and easily.
+
+**Tip 86: Organize Fully Functional Teams**
+Organize Around Functionality, Not Job Functions. Don't separate UI/UX designers from coders, frontend from backend, testers from data modelers, design from deployment. Build teams so you can build code end-to-end, incrementally and iteratively.
+
+### Automation
+
+Make sure the team has skills at *tool building* to construct and deploy the tools that automate the project development and production deployment.
+
+### Know When To Stop Adding Paint
+
+Give each member the ability to shine in their own way. Give them just enough structure to support them and to ensure that the project delivers value.
+
+## 50.-Coconuts Don't Cut It
+
+**Tip 87: Do What Works, Not What's Fashionable**
+Don't adopt a development method or technique just because other companies are doing it. Adopt what works for your team, in your context.
+
+Pilot the idea with a small team or set of teams. Keep a good bits that seem to work well, and discard anything else as waste or overhead.
+
+### One Size Fits No One Well
+
+Take the best pieces from any particular methodology and adapt them for use.
+
+### The Real Goal
+
+The goal is deliver working software that gives the users some new capability *at a moment's notice*
+
+**Tip 88: Deliver When Users Need It**
+Don't wait weeks or months to deliver just because your process demands it.
+
+## 51.-Pragmatic Starter Kit
+
+### Drive With Version Control
+
+**Tip 89: Use Version Control to Drive Builds, Tests, and Releases**
+Use commits or pushes to trigger builds, tests, releases. Use a version control tag to deploy to production.
+
+### Ruthless And Continuous Testing
+
+Pragmatic Programmers are *driven* to find our bugs *now*, so we don't have to endure the shame of others finding our bugs later.
+
+**Tip 90: Test Early, Test Often, Test Automatically**
+Tests that run with every build are much more effective than test plans that sit on a shelf.
+
+**Tip 91: Coding Ain't Done 'Til All the Tests Run**
+
+#### Major types of software testing
+* Unit testing: code that exercises a module
+* Integration testing: the major subsystems that make up the project work and play well with each other
+* Validation and Verification: test if you are delivering what users need.
+* Performance testing: test if the software meets the performance requirements under real-world conditions
+* Testing the Tests: cause the bug deliberately and make sure the test complains
+
+**Tip 92: Use Saboteurs to Test Your Testing**
+Introduce bugs on purpose in a separate copy of the source to verify that testing will catch them.
+
+* Testing Thoroughly: identify all possible states of the program
+
+**Tip 93: Test State Coverage, Not Code Coverage**
+Identify and test significant program states. Testing just lines of code isn’t enough.
+
+* Property-Based Testing: generate test data under test
+
+#### Tightening The Net
+
+**Tip 94: Find Bugs Once**
+Once a human tester finds a bug, it should be the last time a human tester finds that bug. Automatic tests should check for it from then on.
+
+### Full Automation
+
+**Tip 95: Don't Use Manual Procedures**
+A computer will execute the same instructions, in the same order, time after time.
+
+## 52.-Delight Your Users
+
+Our goal as developers is to *delight users*.
+
+Users have a business problem. Our deliverables are not only software, but the solution to the probleam.
+
+The pragmatic programmer is a Problem Solver.
+
+How you can deliver agains underlying expectations of business value:
+* Make sure everyone on the team is totally clear about these expectations.
+* When making decisions, think about which path forward moves closer to those expectations.
+* Critically analyze the user requirements in light of the expectations. On many projects we’ve discovered that the stated “requirement” was in fact just a guess at what could be done by technology: it was actually an amateur implementation plan dressed up as a requirements document. Don’t be afraid to make suggestions that change the requirement if you can demonstrate that they will move the project closer to the objective.
+* Continue to think about these expectations as you progress through the project.
+
+**Tip 96: Delight Users, Don't Just Deliver Code**
+Develop solutions that produce business value for your users and delight them every day.
+
+## 53.-Pride and Prejudice
+
+**Tip 97: Sign Your Work**
+Artisans of an earlier age were proud to sign their work. You should be, too.
 
 # Quick Reference
 ## Tips
@@ -1379,12 +1519,67 @@ However, we need start with a good design to make it simple to change via decoup
 
 **Tip 70: Test Your Software, or Your Users Will**
 
+**Tip 71: Use Property-Based Tests to Validate Your Assumptions**
+
+**Tip 72: Keep It Simple and Minimize Attack Surfaces**
+
+**Tip 73: Apply Security Patches Quickly**
+
+**Tip 74: Name Well; Rename When Needed**
+
+**Tip 75: No One Knows Exactly What They Want**
+
+**Tip 76: Programmers Help People Understand What They Want**
+
+**Tip 77: Requirements Are Learned in a Feedback Loop**
+
+**Tip 78: Work with a User to Think Like a User**
+
+**Tip 79: Policy Is Metadata**
+
+**Tip 80: Use a Project Glossary**
+
+**Tip 81: Don't Think Outside the Box—Find the Box**
+
+**Tip 82: Don't Go into the Code Alone**
+
+**Tip 83: Agile Is Not a Noun; Agile Is How You Do Things**
+
+**Tip 84: Maintain Small Stable Teams**
+
+**Tip 85: Schedule It to Make It Happen**
+
+**Tip 86: Organize Fully Functional Teams**
+
+**Tip 87: Do What Works, Not What's Fashionable**
+
+**Tip 88: Deliver When Users Need It**
+
+**Tip 89: Use Version Control to Drive Builds, Tests, and Releases**
+
+**Tip 90: Test Early, Test Often, Test Automatically**
+
+**Tip 91: Coding Ain't Done 'Til All the Tests Run**
+
+**Tip 92: Use Saboteurs to Test Your Testing**
+
+**Tip 93: Test State Coverage, Not Code Coverage**
+
+**Tip 94: Find Bugs Once**
+
+**Tip 95: Don't Use Manual Procedures**
+
+**Tip 96: Delight Users, Don't Just Deliver Code**
+
+**Tip 97: Sign Your Work**
+
+
 ## Quotes
 I'm not in the world to live up to your expectations and you're not in this world to live up to mine. - Bruce Lee
 
 The greatest of all weaknesses is the fear of appearing weak.
 
-Striving to better, oft we mar what’s well - Shakespeare, King Lear 1.4
+Striving to better, oft we mar what's well - Shakespeare, King Lear 1.4
 
 An investment in knowledge always pays the best interest. - Benjamin Franklin
 
@@ -1409,6 +1604,8 @@ Without writers, stories would not be written, Without actors, stories could not
 Only human beings can look directly at something, have all the information they need to make an accurate prediction, perhaps even momentarily make the accurate prediction, and then say that it isn't so. - Gavin de Becker, The Gift of Fear
 
 Perfection is achieved, not when there is nothing left to add, but when there is nothing left to take away…
+
+When you enchant people, your goal is not to make money from them or to get them to do what you want, but to fill them with great delight. - Guy Kawasaki
 
 ## CheckList
 
@@ -1470,7 +1667,7 @@ Tired of C, C++, and Java? Try the following languages. Each of these languages 
 * Maintain Security Updates
 
 ### Solving Hard Prolems
-* Consider all possible solutions. Think about all constraints you have. Don’t throw anything away. Because all parts can be included in the solutions.
+* Consider all possible solutions. Think about all constraints you have. Don't throw anything away. Because all parts can be included in the solutions.
 * Identify the most restrictive contraints first, and fit the remaining contraints within them.
 * Stuck with the problems, take a break or do something else.
 * Find someone to explain it to.
